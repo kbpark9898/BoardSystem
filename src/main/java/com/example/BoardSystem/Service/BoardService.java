@@ -40,6 +40,7 @@ public class BoardService {
         return boardDtoList;
     }
 
+    @Transactional
     public BoardDto getBoard(Long id){
         Board board = boardRepository.getById(id);
         BoardDto boardDto = BoardDto.builder()
@@ -50,5 +51,10 @@ public class BoardService {
                 .createdDate(board.getCreatedDate())
                 .build();
         return boardDto;
+    }
+
+    @Transactional
+    public void deletePost(Long id){
+        boardRepository.deleteById(id);
     }
 }

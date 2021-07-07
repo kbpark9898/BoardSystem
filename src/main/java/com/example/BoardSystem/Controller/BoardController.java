@@ -4,10 +4,7 @@ import com.example.BoardSystem.Service.BoardService;
 import com.example.BoardSystem.dto.BoardDto;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -54,5 +51,11 @@ public class BoardController {
         boardService.savePost(boardDto);
         return "redirect:/";
 
+    }
+
+    @DeleteMapping("/post/{id}")
+    public String delete(@PathVariable("id") Long id, Model model){
+        boardService.deletePost(id);
+        return "redirect:/";
     }
 }
