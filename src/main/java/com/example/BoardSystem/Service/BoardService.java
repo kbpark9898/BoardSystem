@@ -49,6 +49,7 @@ public class BoardService {
                 .content(board.getContent())
                 .title(board.getTitle())
                 .createdDate(board.getCreatedDate())
+                .fileID(board.getFileID())
                 .build();
         return boardDto;
     }

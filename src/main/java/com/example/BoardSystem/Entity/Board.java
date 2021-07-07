@@ -35,14 +35,18 @@ public class Board {
     @Column(updatable = false)
     private LocalDateTime createdDate;
 
+    @Column
+    private Long fileID;
+
     @LastModifiedDate
     private LocalDateTime modifiedDate;
 
     @Builder
-    public Board(Long id, String author, String title, String content) {
+    public Board(Long id, String author, String title, String content, Long fileID) {
         this.id = id;
         this.author = author;
         this.title = title;
         this.content = content;
+        this.fileID = fileID;
     }
 }
